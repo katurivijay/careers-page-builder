@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+const developmentMode = import.meta.env.MODE === "development"
+const BASE_URL = developmentMode ? 'http://localhost:8080' : "https://careers-page-builder-5p3s.onrender.com";
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '',
+  baseURL: BASE_URL,
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 });

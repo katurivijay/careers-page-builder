@@ -268,12 +268,12 @@ export default function CareersPage() {
                         </div>
                         {job.salaryRange && <p className="text-sm mt-1.5" style={{ color: theme?.textMutedColor }}>{job.salaryRange}</p>}
                       </div>
-                      <span
-                        className="text-sm font-medium px-5 py-2.5 rounded-lg text-center transition-all hover:opacity-90"
+                      <button
+                        className="text-sm font-medium px-5 py-2.5 rounded-lg text-center transition-all hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
                         style={{ backgroundColor: theme?.primaryColor, color: '#fff' }}
                       >
                         View & Apply
-                      </span>
+                      </button>
                     </motion.div>
                   ))}
                 </div>

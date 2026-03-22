@@ -42,9 +42,11 @@ export const useAuthStore = create<AuthState>((set) => ({
     try {
       set({ isLoading: true });
       await api.post('/api/v1/auth/logout');
-      set({ user: null, isAuthenticated: false, isLoading: false });
     } catch (error: any) {
-      set({ error: error.response?.data?.error || 'Failed to logout', isLoading: false });
+      // Proceed with local logout even if server request fails
+    } finally {
+      localStorage.removeItem('token');
+      set({ user: null, isAuthenticated: false, isLoading: false, error: null });
     }
   },
 
@@ -53,6 +55,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
 if (typeof window !== 'undefined') {
   window.addEventListener('auth:unauthorized', () => {
+    localStorage.removeItem('token');
     useAuthStore.getState().setUser(null);
   });
 }

@@ -27,7 +27,11 @@ export default function SignupPage() {
     setIsLoading(true);
     try {
       const response = await api.post('/api/v1/auth/signup', { name, email, password });
-      setUser(response.data.data.user);
+      
+      const { user, token } = response.data.data;
+      if (token) localStorage.setItem('token', token);
+      
+      setUser(user);
       navigate('/dashboard');
     } catch (err: any) {
       setError(err.response?.data?.error || 'Failed to create account');

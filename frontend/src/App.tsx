@@ -20,6 +20,7 @@ import BuilderPage from '@/pages/builder/BuilderPage';
 
 // Public
 import CareersPage from '@/pages/public/CareersPage';
+import LandingPage from '@/pages/LandingPage';
 
 function App() {
   const { checkAuth, isLoading } = useAuthStore();
@@ -55,8 +56,8 @@ function App() {
           <Route path="analytics" element={<AnalyticsPage />} />
         </Route>
 
-        {/* Redirect root to dashboard */}
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        {/* Landing Page */}
+        <Route path="/" element={<LandingPage />} />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

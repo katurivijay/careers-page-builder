@@ -97,7 +97,7 @@ Start the backend:
 npm run dev
 ```
 
-You should see: `🚀 Server running on http://localhost:8080`
+You should see: ` Server running on http://localhost:8080`
 
 ### 3. Set Up the Frontend
 
